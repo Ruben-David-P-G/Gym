@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
     return $request->user();
 });
 */
-
-
+Route::resource('/Sucursal', 'API\SucursalController');
+//Route::get('/Sucursal','API\SucursalController@index')->name('sucur_admin');
 //Route::get('/Inicio','API\ArticuloController@index')->name('Datosnotas');
 

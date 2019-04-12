@@ -1,0 +1,66 @@
+<ion-header>
+
+    <ion-toolbar>
+        <ion-buttons slot="end" (click)="closeModal()"> <ion-button ion-button color="danger"><ion-icon name="close-circle"></ion-icon></ion-button> </ion-buttons>
+        <ion-title>Registrar Sucursal:</ion-title>
+    </ion-toolbar>
+    </ion-header>
+    
+    
+    <ion-content padding>
+      
+      <ion-label text-wrap item-start></ion-label>
+      
+      <ion-item>
+          <ion-label color="primary" position="stacked">Nombre:</ion-label>
+          <ion-input type="text" [(ngModel)]="nombre_comercial" placeholder="NOMBRE"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" position="stacked">Grupo:</ion-label>
+        <ion-input type="text" [(ngModel)]="grupo" placeholder="GRUPO"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" position="stacked"># Sucursal:</ion-label>
+        <ion-input type="number" [(ngModel)]="no_sucursal" placeholder="001"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" position="stacked">Domicilio:</ion-label>
+        <ion-input type="text" [(ngModel)]="direccion"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label color="primary" position="stacked">Estado:</ion-label>
+      <ion-input type="text" [(ngModel)]="estado" placeholder="Nayarit"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label color="primary" position="stacked">Ciudad:</ion-label>
+      <ion-input type="text" [(ngModel)]="ciudad" placeholder="Tepic"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label color="primary" position="stacked">Telefono:</ion-label>
+      <ion-input type="tel" placeholder="311-110-1123" [(ngModel)]="telefono"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label color="primary" position="stacked">Email:</ion-label>
+      <ion-input type="email" [(ngModel)]="email" placeholder="correo@gmail.com"></ion-input>
+      </ion-item>
+      <ion-button color="primary"  (click)="Registrar_Solicitud()">Registrar</ion-button>
+
+
+
+
+      <!-- Default Input -->
+<ion-input></ion-input>
+
+
+<!-- Readonly input 
+<ion-input value="Valor fijo" readonly></ion-input>
+
+
+<ion-item>
+  <ion-label position="stacked">Stacked Label:</ion-label>
+  <ion-input></ion-input>
+</ion-item>
+-->
+
+    </ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+
+    <ion-toolbar>
+        <ion-title>Registrar Sucursal:</ion-title>
+        <ion-buttons end>
+        <button ion-button (click)="closeModal()">Close</button>
+        </ion-buttons>
+    </ion-toolbar>
+    
+    </ion-header>
+    
+    
+    <ion-content padding>
+      
+      <ion-list>
+          <Label>SOLICITUD:</Label>
+        <ion-item>
+          <ion-input placeholder="solicitud" [(ngModel)]="solicitud"></ion-input>
+        </ion-item>
+        <Label>PRIORIDAD:</Label>
+        <ion-item>
+            
+          <ion-select  full>
+
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <button ion-button full (click)="Registrar_Solicitud()">Registrar</button>
+    </ion-content>

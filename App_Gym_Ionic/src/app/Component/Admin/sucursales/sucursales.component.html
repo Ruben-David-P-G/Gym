@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-buttons end (click)="openModal_Registrar()"> <ion-button ion-button color="primary"><ion-icon name="add-circle"></ion-icon></ion-button> </ion-buttons>
+    </ion-buttons>
+    
+    <ion-title>
+      Sucursal
+    </ion-title>
+    
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+ 
+<!--
+<ion-toolbar color="dark">
+    <ion-title>Sucursales</ion-title>
+</ion-toolbar>
+-->
+  <ion-item *ngFor="let datos of sucursal; let a=index;">
+  
+    <ion-avatar item-start>
+      <!--<img src="../../../assets/icon/favicon.png">-->
+      <ion-button  (click)="EliminarArticulo(i)" color="danger">
+          <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-avatar>
+
+    <ion-item>
+        <ion-label text-wrap item-start>
+      <h3><b>Grupo:</b> {{ datos.grupo | uppercase }}</h3>
+      <h3><b>Nombre: </b>{{ datos.nombre_comercial }}</h3>
+      <h3><b>Telefono: </b>{{ datos.telefono }}</h3>
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+      <ion-label text-wrap item-start>
+          <h3><b>Correo:</b> {{ datos.email }}</h3>
+          <h3><b>Dirección:</b> {{ datos.direccion }}</h3>
+          <h3><b>Localidad: </b>{{ datos.ciudad }} {{ datos.estado }}</h3>
+  </ion-label>
+</ion-item>
+</ion-item>
+
+</ion-content>
