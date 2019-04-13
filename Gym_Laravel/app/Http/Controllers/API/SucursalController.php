@@ -79,7 +79,7 @@ class SucursalController extends Controller
      */
     public function destroy($id)
     {
-        return grupo_sucursal::find($id)->delete();
+        //
     }
 
 
@@ -88,6 +88,30 @@ class SucursalController extends Controller
 
 
         grupo_sucursal::find($id)->delete();
+
+
+    }
+
+    public function modificar(Request $request, $id)
+    {
+        try{
+
+            $grupo_sucursal = grupo_sucursal::find($id);
+            $grupo_sucursal->grupo = $request->grupo ;
+            $grupo_sucursal->no_sucursal = $request->no_sucursal;
+            $grupo_sucursal->nombre_comercial = $request->nombre_comercial;
+            $grupo_sucursal->direccion = $request->direccion ;
+            $grupo_sucursal->ciudad = $request->ciudad;
+            $grupo_sucursal->estado = $request->estado;
+            $grupo_sucursal->telefono = $request->telefono ;
+            $grupo_sucursal->email = $request->email;
+            $grupo_sucursal->estatus = $request->estatus;
+            $grupo_sucursal->save();
+
+            return response('Sucursal modified', 200);
+        }catch(Exception $e){
+            return response('Error Updating Sucursal', 400);
+        }
 
 
     }

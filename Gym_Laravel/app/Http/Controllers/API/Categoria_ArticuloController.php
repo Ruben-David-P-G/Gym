@@ -27,7 +27,7 @@ class Categoria_ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -38,7 +38,11 @@ class Categoria_ArticuloController extends Controller
      */
     public function show($id)
     {
-        //
+        $categoria_articulo = categoria_articulo::find($id);
+        if($categoria_articulo){
+            return $categoria_articulo;
+        }
+        return response('categoria_articulo Not found', 404);
     }
 
     /**
@@ -63,4 +67,40 @@ class Categoria_ArticuloController extends Controller
     {
         //
     }
+
+
+
+    public function eliminar($id)
+    {
+
+
+        categoria_articulo::find($id)->delete();
+
+
+    }
+
+    public function modificar(Request $request, $id)
+    {
+        try{
+
+            $categoria_articulo = categoria_articulo::find($id);
+            $categoria_articulo->grupo = $request->grupo ;
+            $categoria_articulo->no_sucursal = $request->no_sucursal;
+            $categoria_articulo->nombre_comercial = $request->nombre_comercial;
+            $categoria_articulo->direccion = $request->direccion ;
+            $categoria_articulo->ciudad = $request->ciudad;
+            $categoria_articulo->estado = $request->estado;
+            $categoria_articulo->telefono = $request->telefono ;
+            $categoria_articulo->email = $request->email;
+            $categoria_articulo->estatus = $request->estatus;
+            $categoria_articulo->save();
+
+            return response('categoria_articulo modified', 200);
+        }catch(Exception $e){
+            return response('Error Updating categoria_articulo', 400);
+        }
+
+
+    }
+
 }

@@ -11,6 +11,7 @@ export class AppComponent {
   public appPages = [
     { title: 'Inicio', url: '/home', icon: 'home' },
     { title: 'Sucursales', url: '/SucursalesComponent', icon:'people' },
+    { title: 'Categorias', url: '/CategoriasComponent', icon:'cube' },
   ];
 
   constructor(

@@ -45,7 +45,6 @@ export class SucursalesComponent implements OnInit {
 
     modal.onDidDismiss().then((d: any) => this.listarSucursales());
     return await modal.present();
-
   }
 
   EliminarSucursal(datos) {
