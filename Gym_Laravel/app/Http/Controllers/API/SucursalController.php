@@ -52,7 +52,11 @@ class SucursalController extends Controller
      */
     public function show($id)
     {
-        //
+        $grupo_sucursal = grupo_sucursal::find($id);
+        if($grupo_sucursal){
+            return $grupo_sucursal;
+        }
+        return response('grupo_sucursal Not found', 404);
     }
 
     /**
@@ -75,6 +79,18 @@ class SucursalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return grupo_sucursal::find($id)->delete();
     }
+
+
+    public function eliminar($id)
+    {
+
+
+        grupo_sucursal::find($id)->delete();
+
+
+    }
+
+
 }

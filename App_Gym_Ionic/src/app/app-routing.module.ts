@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { SucursalesComponent } from './Component/Admin/sucursales/sucursales.component';
 import { RegSucursalesComponent } from './Component/Admin/Modal/reg-sucursales/reg-sucursales.component';
+import { VerSucursalComponent } from './Component/Admin/Modal/ver-sucursal/ver-sucursal.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   },
   {  
     path: 'RegSucursalesComponent', component: RegSucursalesComponent 
+  },
+  {  
+    path: 'VerSucursalComponent', component: VerSucursalComponent 
   },
   
 ];

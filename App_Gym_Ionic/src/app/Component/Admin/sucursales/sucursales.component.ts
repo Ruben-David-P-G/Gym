@@ -1,7 +1,10 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ModalController  } from '@ionic/angular';
 import { DatosAdminService } from '../../../services/datos-admin.service';
 import { RegSucursalesComponent } from '../Modal/reg-sucursales/reg-sucursales.component';
+import { VerSucursalComponent } from '../Modal/ver-sucursal/ver-sucursal.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sucursales',
@@ -12,9 +15,9 @@ import { RegSucursalesComponent } from '../Modal/reg-sucursales/reg-sucursales.c
 export class SucursalesComponent implements OnInit {
   sucursal: any[] = [];
   i:string="";
-  
-  constructor(public datosService: DatosAdminService,
-    public modalCtrl : ModalController) {
+  ruta:string="";
+  constructor(public datosService: DatosAdminService, 
+    public modalCtrl : ModalController,public http: HttpClient) {
   }
   ngOnInit() {
     this.listarSucursales();
@@ -34,10 +37,6 @@ export class SucursalesComponent implements OnInit {
   }
 
 
-
-
-  
-
   async openModal_Registrar() {
     const modal = await this.modalCtrl.create({
       component: RegSucursalesComponent,
@@ -49,29 +48,53 @@ export class SucursalesComponent implements OnInit {
 
   }
 
-  EliminarArticulo(datos) {
-    let confirmacion = confirm('¿Realmente deseas eliminar este articulo?');
-    if (confirmacion == true) {
-      this.i=this.sucursal[datos].id;
-/*
-      let formDat = new FormData();
-      formDat.append('clave', this.sucursal[datos].pk_articulo);
+  EliminarSucursal(datos) {
 
-      this.http.post(this._Articulos.localhost_nombre + 'eliminar_articulo.php', formDat)
-        .subscribe((data) => {
-          console.log(data);
+    this.ruta=this.datosService.servidor+'/api/delete/sucursal/'+this.sucursal[datos].id;
+    Swal.fire({
+      title: '¿Quieres eliminar la sucursal '+this.sucursal[datos].nombre_comercial+'?',
+      text: "Una ves eliminada no se podrá recuperar.",
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Eliminar'
+    }).then((result) => {
+      if (result.value) {
 
-          let jsonResponse = data.json();
+        return new Promise((resolve, reject) => {
+          this.http.get(this.ruta)
+          .subscribe(res => {
+                  console.log(res);
+                  Swal.fire({ type: 'success', title: 'La sucursal ha sido eliminada.', showConfirmButton: false, timer: 1500 });
+                  this.listarSucursales();
+            }, err => {
+              console.log(err);
+              Swal.fire({ type: 'error', title: 'Error', showConfirmButton: false, timer: 1500 });
+              this.listarSucursales();
+            });
         });
 
-      alert('Se elimino el articulo ' + this.sucursal[datos].nom_articulo);
+      }else{
+        Swal.fire({ type: 'info',title: 'Cancelado!',showConfirmButton: false,timer: 1500 });
+      }
+    })
+  }
+ 
 
-      this.consultarArticulos();
-*/
-    }
-    else {
-      //alert('Haces otra cosa'); 
-    }
+ 
+
+  async Ver_Sucursal(datos) {
+
+    this.i=this.sucursal[datos].id;
+    const modal = await this.modalCtrl.create({
+      component: VerSucursalComponent,
+      componentProps: { value: this.i }
+    });
+
+    modal.onDidDismiss().then((d: any) => this.listarSucursales());
+    return await modal.present();
+
   }
 
 }

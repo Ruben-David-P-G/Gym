@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 });
 */
 Route::resource('/Sucursal', 'API\SucursalController');
+Route::get('/delete/sucursal/{id}','API\SucursalController@eliminar');
 //Route::get('/Sucursal','API\SucursalController@index')->name('sucur_admin');
 //Route::get('/Inicio','API\ArticuloController@index')->name('Datosnotas');
 

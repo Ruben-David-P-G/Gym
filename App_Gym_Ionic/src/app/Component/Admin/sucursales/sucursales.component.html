@@ -20,13 +20,19 @@
     <ion-title>Sucursales</ion-title>
 </ion-toolbar>
 -->
-  <ion-item *ngFor="let datos of sucursal; let a=index;">
+  <ion-item *ngFor="let datos of sucursal; let i=index;">
   
     <ion-avatar item-start>
       <!--<img src="../../../assets/icon/favicon.png">-->
-      <ion-button  (click)="EliminarArticulo(i)" color="danger">
+      <ion-button  (click)="EliminarSucursal(i)" color="medium">
           <ion-icon name="trash"></ion-icon>
       </ion-button>
+     
+    </ion-avatar>
+    <ion-avatar item-start>
+      <ion-button  (click)="Ver_Sucursal(i)" color="success">
+        <ion-icon name="create"></ion-icon>
+    </ion-button>
     </ion-avatar>
 
     <ion-item>
@@ -45,5 +51,20 @@
   </ion-label>
 </ion-item>
 </ion-item>
+
+<!--
+<ion-button color="primary">Primary</ion-button>
+<ion-button color="secondary">Secondary</ion-button>
+<ion-button color="tertiary">Tertiary</ion-button>
+<ion-button color="success">Success</ion-button>
+<ion-button color="warning">Warning</ion-button>
+<ion-button color="danger">Danger</ion-button>
+<ion-button color="light">Light</ion-button>
+<ion-button color="medium">Medium</ion-button>
+<ion-button color="dark">Dark</ion-button>
+<ion-button size="large">Large</ion-button>
+<ion-button>Default</ion-button>
+<ion-button size="small">Small</ion-button>
+-->
 
 </ion-content>

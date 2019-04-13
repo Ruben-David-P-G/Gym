@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -10,21 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
   public appPages = [
-    {
-      title: 'Inicio',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'Sucursales',
-      url: '/sucursales-admin',
-      icon: 'people'
-    },
-    {
-      title: 'SucursalesComponent',
-      url: '/SucursalesComponent',
-      icon: 'people'
-    },
+    { title: 'Inicio', url: '/home', icon: 'home' },
+    { title: 'Sucursales', url: '/SucursalesComponent', icon:'people' },
   ];
 
   constructor(

@@ -13,13 +13,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RegSucursalesComponent } from './Component/Admin/Modal/reg-sucursales/reg-sucursales.component';
-
+import { VerSucursalComponent } from './Component/Admin/Modal/ver-sucursal/ver-sucursal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SucursalesComponent,
-    RegSucursalesComponent
+    RegSucursalesComponent,
+    VerSucursalComponent
   ],
   entryComponents: [],
   imports: [
