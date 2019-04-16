@@ -1,3 +1,31 @@
-<p>
-  ver-caegoria works!
-</p>
+<ion-header>
+
+  <ion-toolbar>
+      <ion-buttons slot="end" (click)="closeModal()"> <ion-button ion-button color="danger"><ion-icon name="close-circle"></ion-icon></ion-button> </ion-buttons>
+      <ion-title>Editar Sucursal: {{id}}</ion-title>
+  </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+
+    <ion-item>
+        <ion-label color="primary" position="stacked">Nombre:</ion-label>
+        <ion-input type="text" [(ngModel)]="nombre" placeholder="NOMBRE"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" position="stacked">Descripción:</ion-label>
+      <ion-input type="text" [(ngModel)]="descripcion" placeholder="GRUPO"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="stacked"># Sucursal:</ion-label>
+      <ion-input type="number" [(ngModel)]="id_grupo_sucursal" placeholder="001"></ion-input>
+    </ion-item>
+   
+    <ion-button color="primary"  (click)="Actualizar_Categoria()">Actualizar datos</ion-button>
+
+<ion-input></ion-input>
+
+
+  </ion-content>

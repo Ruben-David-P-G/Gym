@@ -17,14 +17,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
   },
-  { path: 'sucursales-admin', 
-    loadChildren: './admin/sucursales-admin/sucursales-admin.module#SucursalesAdminPageModule' 
-  },
 
   {  path: 'SucursalesComponent', component: SucursalesComponent },
   {  path: 'RegSucursalesComponent', component: RegSucursalesComponent },
   {  path: 'VerSucursalComponent', component: VerSucursalComponent },
-
   {  path: 'CategoriasComponent', component: CategoriasComponent },
   {  path: 'RegCaegoriasComponent', component: RegCaegoriasComponent },
   {  path: 'VerCaegoriaComponent', component: VerCaegoriaComponent },

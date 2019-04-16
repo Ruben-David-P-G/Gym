@@ -11,4 +11,9 @@ export class DatosAdminService {
   ver_sucursales(){
     return this.http.get(this.servidor+'/api/Sucursal');
   }
+
+  ver_categorias(){
+    return this.http.get(this.servidor+'/api/Categoria');
+  }
+
 }

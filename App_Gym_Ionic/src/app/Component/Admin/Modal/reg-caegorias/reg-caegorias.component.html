@@ -1,3 +1,31 @@
-<p>
-  reg-caegorias works!
-</p>
+<ion-header>
+
+  <ion-toolbar>
+      <ion-buttons slot="end" (click)="closeModal()"> <ion-button ion-button color="danger"><ion-icon name="close-circle"></ion-icon></ion-button> </ion-buttons>
+      <ion-title>Registrar Categoria:</ion-title>
+  </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    
+    <ion-label text-wrap item-start></ion-label>
+    
+    <ion-item>
+        <ion-label color="primary" position="stacked">Nombre:</ion-label>
+        <ion-input type="text" [(ngModel)]="nombre" placeholder="NOMBRE"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" position="stacked">Descripción:</ion-label>
+      <ion-input type="text" [(ngModel)]="descripcion"></ion-input>
+    </ion-item>
+    
+    <ion-button color="primary"  (click)="Registrar_Categoria()">Registrar</ion-button>
+
+
+<ion-input></ion-input>
+
+
+
+  </ion-content>

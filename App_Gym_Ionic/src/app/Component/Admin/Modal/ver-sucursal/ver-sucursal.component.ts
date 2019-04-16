@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 
 export class VerSucursalComponent implements OnInit {
 sucursal;
-ArryUsuario: any[] = [];
  id:any;
  grupo:string="";
  no_sucursal:string="";

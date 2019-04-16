@@ -27,7 +27,16 @@ class Categoria_ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-
+        try{
+            $categoria_articulo = new categoria_articulo();
+            $categoria_articulo->nombre = $request->nombre ;
+            $categoria_articulo->descripcion = $request->descripcion;
+            $categoria_articulo->id_grupo_sucursal = $request->id_grupo_sucursal;
+            $categoria_articulo->save();
+            return response('categoria_articulo creada creada', 201);
+        }catch(Exception $e){
+            return response('categoria_articulo no creada', 400);
+        }
     }
 
     /**
@@ -84,15 +93,9 @@ class Categoria_ArticuloController extends Controller
         try{
 
             $categoria_articulo = categoria_articulo::find($id);
-            $categoria_articulo->grupo = $request->grupo ;
-            $categoria_articulo->no_sucursal = $request->no_sucursal;
-            $categoria_articulo->nombre_comercial = $request->nombre_comercial;
-            $categoria_articulo->direccion = $request->direccion ;
-            $categoria_articulo->ciudad = $request->ciudad;
-            $categoria_articulo->estado = $request->estado;
-            $categoria_articulo->telefono = $request->telefono ;
-            $categoria_articulo->email = $request->email;
-            $categoria_articulo->estatus = $request->estatus;
+            $categoria_articulo->nombre = $request->nombre ;
+            $categoria_articulo->descripcion = $request->descripcion;
+            $categoria_articulo->id_grupo_sucursal = $request->id_grupo_sucursal;
             $categoria_articulo->save();
 
             return response('categoria_articulo modified', 200);
