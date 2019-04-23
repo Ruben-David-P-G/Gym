@@ -5,6 +5,10 @@ import { DatosAdminService } from '../../../services/datos-admin.service';
 import { RegCaegoriasComponent } from '../Modal/reg-caegorias/reg-caegorias.component';
 import { VerCaegoriaComponent } from '../Modal/ver-caegoria/ver-caegoria.component';
 import Swal from 'sweetalert2';
+import { ViewChild} from '@angular/core';
+declare var $;
+
+
 @Component({
   selector: 'app-categorias',
   templateUrl: './categorias.component.html',
@@ -13,12 +17,24 @@ import Swal from 'sweetalert2';
 export class CategoriasComponent implements OnInit {
   categoria: any[] = [];
   ruta:string="";
-  constructor(public datosService: DatosAdminService, 
-    public modalCtrl : ModalController,public http: HttpClient) { }
+  @ViewChild('dataTable') table;
+  dataTable: any;
 
-  ngOnInit() {
-    this.listarCategorias();
-  }
+  constructor(public datosService: DatosAdminService, 
+    public modalCtrl : ModalController,public http: HttpClient) {
+      
+     }
+
+    ngOnInit(): void {
+      
+      this.dataTable = $(this.table.nativeElement);
+      this.dataTable.DataTable();
+      this.listarCategorias();
+//Another code here of init table here
+
+    }
+
+
 
   listarCategorias(){
     this.datosService.ver_categorias()
@@ -31,6 +47,9 @@ export class CategoriasComponent implements OnInit {
         console.error(error);
       }
       )
+
+      
+      
   }
 
 
